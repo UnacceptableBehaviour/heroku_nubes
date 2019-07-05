@@ -30,7 +30,7 @@ def rmagik_info(file)
       puts "RESIZING before copying x#{scale}"
       
       file_large = file.sub(File.extname(file), '_LRG.jpg')   # copy to image_name_LRG.jpg
-      FileUtils.cp( file, "../scratch/#{file_large}")
+      FileUtils.cp( file, "scratch/#{file_large}")
       
       img_430 = img.scale(scale)
       

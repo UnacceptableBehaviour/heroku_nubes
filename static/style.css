@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+
+/*-- CSS uses selectors to target elements to format on the page --*/
+/*-- CSS referece - https://www.w3schools.com/cssref/css_selectors.asp --*/
+/*--                          EG
+. selects elements class      .carousel-item { transition: -webkit-transform 0.5s ease; }
+# selects elements id         #fixed { background-image: url('img/mac.png'); }
+element                       body { background-color: lightblue; }
+
+. . . there are a lot see ref! 
+
+@media  based on viewport     @media (max-width: 576px) {  EG can create different set of rile for each size
+                                body { background-color: lightblue; }
+                              }                 
+
+--*/
+
+/*-- standard element tags --*/
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;     /*-- font (imported at the top), backup font --*/
+  color: #222;                            /*-- https://encycolorpedia.com/222222 --*/
+}
+/*-- don't understand how this 'hex' colour is working? --*/
+
+/*-- class='navbar ...' --*/
+.navbar {
+  padding: .8rem;                         /*-- rem - root font size 16pixels --*/
+}
+/*--
+Rems and Ems are not equal,
+Rems use the root font-size which is given by the html tag
+(the default is 16px but you can change it to 10px to make easier calculation)
+-
+Ems are related to the font-size of their parent <  media-query
+(usually Ems are used with media-query).
+-
+More on units
+https://kyleschaeffer.com/css-font-size-em-vs-px-vs-pt-vs-percent
+--*/
+
+
+
+/*-- .nav-link property appears crossed out - means it's being over-ridden by another rule --*/
+/*--
+.nav-link {                              # turned out to be .navbar-nav li! picked up a tip css debug though!
+  padding-right: 80px;
+}
+--*/
+/*-- question is which? how to find out? --*/
+/*-- enter nav-link in the filter box (elements tab > styles tab) 
+Shows over ridden by
+@media (min-width: 768px) .navbar-expand-md .navbar-nav .nav-link
+{
+    padding-right: 0.5rem;
+    padding-left: .5rem;
+}
+navbar.scss 171     < line not in css file!
+--*/
+
+/*-- .navbar-nav li { }
+		<ul class="navbar-nav ml-auto">               <<  .navbar-nav
+			<li class="nav-item active">                <<  .navbar-nav  li   << li below class - 5 off
+				<a class="nav-link" href="#">Home</a>     
+			</li>
+--*/			
+.navbar-nav li {                        /*-- corrected class selector --*/
+  padding-right: 20px;                  /*-- 80px; move over test --*/
+}
+
+.nav-link {
+  font-size: 1.1em !important;
+}
+
+
+/*--
+	<div class="carousel-inner">                              << .carousel-inner
+		<div class="carousel-item">                             
+			<img src='img/background2.png' class="img-fluid">     << .carousel-inner img    multiple
+		</div>
+--*/		
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+
+/*-- move carousel caption to the centre --*/
+.carousel-caption {
+  position: absolute;
+  top: 50%;           /*-- top: 90%; title almost completely off page, subtext not visible --*/  
+                      /*-- top: 10%; title very, more about the title than the image! --*/  
+  transform: translateY(-50%);     /*-- adjustment super imposed on top: --*/
+
+  /*-- transform: rotateX(45deg);      /*-- into the screen / star wars intro text effect --*/
+  /*-- transform: rotateX(90deg);      /*-- into the screen - line of dots - text fallen over flat --*/
+  /*-- transform: rotateY(40deg);      /*-- into the screen - y axis left of screen --*/
+  /*-- transform: rotateZ(-10deg);      /*-- 40deg rotate CW - z axis going into --*/
+  /*-- rotateX(a) is equivalent to rotate3d(1, 0, 0, a). argument units: 360deg, 1turn, 3.14rad --*/
+  /*-- creating a cube with <div class=""> transform and little else!! --*/
+  /*-- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transforms/Using_CSS_transforms --*/
+}
+  
+/*-- at this point the text looks oversized on small android device --*/
+.carousel-caption h1 {
+  font-size: 500%;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 10px #000;  
+}
+
+/*-- h3 carousel food image caption
+ *   p  carousel food image description
+.carousel-caption h3 {
+  font-size: 500%;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 10px #000;  
+}
+--*/
+.carousel-caption h3 {
+  font-size: 200%;
+  font-weight: 500;
+  text-shadow: 2px 2px 10px #000;  
+}
+ 
+.btn-primary {
+  background-color: #6648b1;
+  border: 1px solid #6648b1;
+}
+
+/*-- hover doesnt do ANYTHING??? in carousel - works on other buttons--*/
+.btn-primary:hover {
+  background-color: #F6347c;
+  border: 1px solid #05347c;
+}
+
+/*-- hover doesnt do ANYTHING??? for this class either --*/
+.btn-outline-secondary:hover {
+  background-color: #CE9FCB;
+  border: 1px solid #05347c; 
+}
+/*-- TODO: debug - activating hover in the cosole changes the button colour!? --*/
+
+/*--
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #00b3db;
+    border-color: #285e8e; 
+}
+--*/
+
+.jumbotron {
+  padding: 0.5rem;
+  /*-- margin: 0.5rem; --*/
+  border-radius: 0;
+}
+
+.padding {
+  padding-bottom: 2rem;
+}
+
+/*-- make it so the text is wrapping againf the viewpoet width tbut in just a bit! --*/
+/*--
+Select 2 sections
+
+Welcome
+<div class="row welcome text-center">
+
+Check out the Courses
+<div class="row welcome text-center">
+--*/
+
+.welcome {
+  width: 95%;       /*-- was 75% looks better at 95% --*/
+  margin: 0 auto;   /*-- centre it --*/
+}
+
+.welcome hr {           /*-- not visible at all before - introduce grey line & position it --*/
+  border-top: 2px solid #b4b4b4;
+  width: 95%;           /*-- was 75% looks better at 95% --*/
+  margin-top: .3rem;    
+  margin-bottom: 1rem;  
+}
+
+/*-- SVG ICONS --*/
+/*-- CHANGING THE COLOURS --*/
+
+.fa-drumstick-bite {      /*-- .fa-code { --*/
+  color: #B74A29;
+}
+.fa-seedling {            /*-- .fa-bold { --*/
+  color: #69B742;
+}
+.fa-bread-slice {         /*-- .fa-css3 { --*/
+  color: #FFDE3B;
+}
+
+/*-- SVG ICONS --*/
+/*-- change size - all at the same time! --*/
+.fa-drumstick-bite, .fa-seedling, .fa-bread-slice {
+  font-size: 4em;
+  margin: 1rem;
+}
+
+/*-- REMOVE --*/
+/*-- click for fun 
+.fun {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.gif {
+  max-width: 100%;
+}
+--*/
+
+/*-- change the social media colours & sizes --*/
+/*-- same as the other SVG icons --*/
+.fa-facebook {
+  color: #3b5998;
+}
+.fa-twitter {
+  color: #00aced;
+}
+.fa-google-plus-g {
+  color: #dd4b39;
+}
+.fa-instagram {
+  color: #517fa4;
+}
+.fa-youtube {
+  color: #bb0000;
+}
+/*-- size & spacing .fab { --*/
+.social a {  
+  font-size: 4.5em;
+  padding: 3rem;
+}
+
+/*-- grey when hover --*/
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-google-plus-g:hover,
+.fa-instagram:hover,
+.fa-youtube:hover {
+  color: #d5d5d5;
+}
+
+
+footer {
+  background-color: #3f3f3f;
+  color: #d5d5d5;
+  padding-top: 2rem;
+}
+
+hr.light {
+  border-top: 1px solid #d5d5d5;
+  width: 75%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+footer a {
+  color: #d5d5d5;
+}
+hr.light-100 {
+  border-top: 1px solid #d5d5d5;
+  width: 100%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+
+
+/*--  
+@media
+Using media queries are a popular technique for delivering a tailored style sheet
+(responsive web design) to desktops, laptops, tablets, and mobile phones.
+Change the background color of the <body> element to "lightblue" when the browser
+window is 600px wide or less:
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+Use to select or format based on:
+width and height of the viewport
+width and height of the device
+orientation (is the tablet/phone in landscape or portrait mode?)
+resolution
+. . and more
+--*/
+
+/*---Media Queries --*/
+@media (max-width: 992px) { /*--  --*/
+  .social a {
+    font-size: 4em;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) { /*--  --*/
+  .carousel-caption {
+    top: 45%;  
+  }
+  .carousel-caption h1 {
+    font-size: 350%;
+  }
+  .carousel-caption h3 {
+    font-size: 140%;
+    font-weight: 400;
+    padding-bottom: 0.2rem;
+  }
+  .carousel-caption .btn {
+    
+  }
+}
+
+/*-- mobile phone --*/
+/*-- target 310px --*/
+@media (max-width: 576px) {
+  .carousel-indicators {
+    display: none;
+  }
+
+  h1.attention-title {
+    font-size: 2em;    
+  }
+  
+  .social a {
+    font-size: 2.5em;
+    padding: 0.2em;
+  }
+  
+  .carousel-caption h3 {
+    text-shadow: 1px 1px 5px #000;
+  }  
+
+  .carousel-caption p {
+    text-shadow: 1px 1px 5px #000;
+  }
+
+}
+
+
+
+
+
+
+/*--
+--*/
+/*--  --*/
+
+
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+/*--- Fixed Background Image 
+      figures & captions - https://www.w3.org/Style/Examples/007/figures.en.html
+      
+      The <figure> tag specifies self-contained content, like illustrations,
+      diagrams, photos, code listings, etc. 
+
+      While the content of the <figure> element is related to the main flow,
+      its position is independent of the main flow, and if removed it should not affect
+      the flow of the document.
+--*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+
+/*--  --*/
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*--  --*/
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+/*--  --*/
+
+
+
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+
+
+
+
+
+
+

@@ -1,6 +1,7 @@
 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Ex2 hello boostrap - heroku
 ## https://stark-scrubland-88399.herokuapp.com/
+photography kindlu provided by ferdiesfoodlab.co.uk
 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 ## Steps:

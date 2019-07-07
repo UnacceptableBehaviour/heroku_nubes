@@ -1,12 +1,13 @@
 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Ex2 hello boostrap - heroku
 ## https://stark-scrubland-88399.herokuapp.com/
-photography kindlu provided by ferdiesfoodlab.co.uk
+ photography kindlu provided by ferdiesfoodlab.co.uk
 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 ## Steps:
-
 Create repo                                    # create on git hub & git clone it
+$ cd /Users/simon/a_syllabus/lang/python/repos/
+$ git clone https://github.com/UnacceptableBehaviour/heroku_nubes
 
 ### cd into directory
 $ cd /Users/simon/a_syllabus/lang/python/repos/heroku_nubes
@@ -52,13 +53,14 @@ Werkzeug==0.15.4
 /static/scratch
 ```
 ### edit Procfile
-web: gunicorn hello:app        # name of app is hello (hello.py)
+`web: gunicorn hello:app        # name of app is hello (hello.py)`
 
 ### Create blank app on heroku with create
+```
 $ heroku create
 Creating app... done, ⬢ stark-scrubland-88399
 https://stark-scrubland-88399.herokuapp.com/ | https://git.heroku.com/stark-scrubland-88399.git
-
+```
 ### git add & commit
 ```
 $ git status                    # quick check to see
@@ -84,9 +86,10 @@ new file:   static/sushi masterclass.jpg
 new file:   templates/index.html
 ```
 ### git commit & push up to heroku
+```
 $ git commit -m='hello heroku w flask'
 $ git push heroku master
-
+```
 ### All done - up and serving!
 
 

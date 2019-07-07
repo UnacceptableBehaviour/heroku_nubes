@@ -2,7 +2,9 @@
 Understanding the heroku ecosystem
 
 FROM: FTD-Heroku.rtf
-See Ex1_creating_dyno_w_db.rtf
+See md docs for steps in creation
+Ex1_creating_dyno_w_db.md
+Ex2_creating_flask_app_heroku.md
 
 ## Ecosystem Concepts / Terminology
 ### dynos

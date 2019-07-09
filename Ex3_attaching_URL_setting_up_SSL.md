@@ -1,10 +1,10 @@
 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Ex3 - Point domain name to APP (& setup SSL next..)
 
-## Domain name: theunfinishedproject.space
-## DNS Target: molecular-pumpkin-rulu5keb86w502k76rzcj2lb.herokudns.com
-## Application URL: https://stark-scrubland-88399.herokuapp.com/
-## Application name: stark-scrubland-88399
+# Domain name: theunfinishedproject.space
+# DNS Target: molecular-pumpkin-rulu5keb86w502k76rzcj2lb.herokudns.com
+# Application URL: https://stark-scrubland-88399.herokuapp.com/
+# Application name: stark-scrubland-88399
 
 photography kindly provided by ferdiesfoodlab.co.uk
 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -21,8 +21,6 @@ Adding www.theunfinishedproject.space to ⬢ stark-scrubland-88399... done
 The domain www.theunfinishedproject.space has been enqueued for addition
 ▸    Run heroku domains:wait 'www.theunfinishedproject.space' to wait for completion
 ```
-## DNS Target: computational-partridge-c23ms6gex8rmypn3hre1osid.herokudns.com
-http://computational-partridge-c23ms6gex8rmypn3hre1osid.herokudns.com/
 
 ## have a look at current domain settings:
 ```
@@ -116,9 +114,9 @@ Image quality terrible - shrank them a bit too much!
 
 
 ## Next:
-What’s SSL endpoint addon?
-Can we even do SSL from this DNS provder?
-How to create an SSL certificate hope fully with letsencrypt
+#### What’s SSL endpoint addon?
+#### Can we even do SSL from this DNS provder?
+#### How to create an SSL certificate hope fully with letsencrypt
 
 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 ## REFERENCES

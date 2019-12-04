@@ -1,0 +1,23 @@
+{% extends 'nav_bar_t.html' %}
+
+{% block header %}
+
+    <link rel="stylesheet" type="text/css" href="static/recipe.css"/> 
+
+    <!--<script src="https://use.fontawesome.com/releases/v5.7.0/js/all.js"></script>-->
+
+{% endblock %}
+
+
+{% block content %}
+
+    {% include 'recipe_page.html' %}
+    
+    <br>
+
+    <p>{{ recipes[0]['ri_id'] }} : {{ recipes[0]['ri_name'] }} <br>
+    Serving size {{ recipes[0]['nutrinfo']['serving_size'] }}g <br>
+    Yield: {{ recipes[0]['nutrinfo']['yield'] }}g - Servings: {{ recipes[0]['nutrinfo']['servings'] }} 
+    </p>
+
+{% endblock %}

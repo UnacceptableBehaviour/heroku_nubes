@@ -1,0 +1,35 @@
+{% extends 'nav_bar_t.html' %}
+
+{% block header %}
+
+  <title>recipe_search</title>
+  <!--<script src="https://use.fontawesome.com/releases/v5.7.0/js/all.js"></script>-->
+  <!--<link rel="stylesheet" href="{{ url_for( 'static', filename='recipe_search.css') }}">-->
+  <link rel="stylesheet" href="static/search.css">
+
+  <script>          
+    var userInfo = {{ user_info|tojson }};
+    console.log(`settings_t.html JS userInfo ${userInfo['UUID']} - inline`);  // sanity check
+    console.log(userInfo);
+  </script>
+  
+{% endblock %}
+
+{% block content %}
+    
+  {% include 'search_page.html' %}
+  
+    
+  <!--REMOVE DEBUG-->
+<!--  <table id='debug-recipe-search-table'>
+    <tbody>
+    <td>S1</td>
+    <td>S2</td>
+    <td>S3</td>   
+    </tbody>
+  </table>-->
+  <!--REMOVE DEBUG-->
+  
+  <script src='static/search.js'></script>
+  
+{% endblock %}

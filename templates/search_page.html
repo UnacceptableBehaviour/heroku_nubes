@@ -1,0 +1,29 @@
+{% block content %}
+
+<div  id='recipe-search-input-row' class="container-fluid">
+  
+  <div class="input-group">
+    
+    <input id='recipe-search-1-inrow' class="form-control" type="text" placeholder='s1'>
+
+    <input id='recipe-search-2-inrow' class="form-control" type="text" placeholder='s2'>
+    
+    <input id='recipe-search-3-inrow' class="form-control"type="text" placeholder='s3'>        
+    
+  </div>
+
+</div>
+
+<div class="container-fluid">
+  <h4 id='page-display-title'>
+    recipe search
+    <button id='but-recipe-search' type="button" class="btn btn-outline-danger float-right">SEARCH</button>  
+  </h4>
+  
+</div>
+
+<br>
+
+<div id="rcp-gallery" class="container-fluid padding"></div>
+
+{% endblock %}

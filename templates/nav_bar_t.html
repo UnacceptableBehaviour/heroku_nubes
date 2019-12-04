@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Heroku Roulette & Search</title>
+        <!--Push as much as possible into the page - minimise load & dependencies-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.7.0/js/all.js"></script>
+
+        <!--
+        <script src="dtk_store.js">
+            //console.log(`nav_bar_t.html JS dtk ${dtk['dtk_rcp']['ri_name']} - inline`);  // sanity check
+            //console.log(dtk);  // sanity check
+            //console.log(`weight_in_t.html - inline CONCLUDED`);  // sanity check            
+        </script>
+        -->
+
+        <!--<link rel="stylesheet" href="{{ url_for( 'static', filename='style.css') }}">-->
+        <link rel="stylesheet" href="static/style.css">
+        
+        {% block header %}
+        {% endblock%}
+
+    </head>
+    
+    <body>
+        <!-- Navigation - this is the nav bar at the top! -->
+        <!-- md refers to the medium viewport see bottomof .css -->
+        <!-- bg background -->
+        <nav class='navbar navbar-expand-lg navbar-light bg-light sticky-top'>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="http://www.ferdiesfoodlab.co.uk/"><img src="static/images/PNG/foodlab_logo.png"></a>	
+            <!--a class="navbar-brand" href="http://www.ferdiesfoodlab.co.uk/"><img src="static/images/foodlab_logo.png"></a-->
+            
+            <!-- #navbarResponsive css selector I think? Yes see div below-->
+            <button class="nav-bar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"	>
+                <!-- icon span instead of a line for each bar - boostrap - navbar-toggler-icon (hamburger icon) -->
+                <!-- https://stackoverflow.com/questions/42586729/bootstrap-4-change-hamburger-toggler-color -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collaspe" id="navbarResponsive">
+                <!-- navbar items in unordered list -->
+                <!-- ml-auto puts title on left / or drop down depending on viewport -->
+                <ul class="navbar-nav  ml-auto">
+                    <!-- 			
+                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link" href="#">Connect</a>
+                    -->
+        
+                    <li class="nav-item active">
+                        <a class="nav-link" href=href="{{url_for('index')}}>Home</a>                        
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('db_recipe_page')}}">RR</a>                        
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('search_ingredient')}}">Search</a>                        
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('settings')}}">Settings</a>                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+        </nav>
+
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>
+
+

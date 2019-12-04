@@ -1,0 +1,57 @@
+{% block content %}
+
+<br>
+<!--<form id='form_filter_tags' action={{url_for('settings')}} method='POST'>-->
+<div id='form_filter_tags'>
+  <div id='settings-container' class="container">        
+      <div id="did_allergens" class="container-fluid padding tag-div">            
+          ALLERGIES TO EXCLUDE:            
+          {% for tag in user_info['tag_sets']['allergens'] %}
+          <button id='tag_btn_id_{{tag}}' name='tag_btn_{{tag}}' value='{{tag}}' class='btn btn-sm btn-outline-secondary'>{{tag}}</button>
+          {% endfor %}
+      </div>
+
+      <div id="did_tags_exc" class="container-fluid padding tag-div">
+          TAGS TO EXCLUDE:
+          {% for tag in user_info['tag_sets']['tags_exc'] %}
+          <button id='tag_btn_id_{{tag}}' name='tag_btn_{{tag}}' value='{{tag}}' class='btn btn-sm btn-outline-secondary'>{{tag}}</button>
+          {% endfor %}
+      </div>
+
+      <div id="did_tags_inc" class="container-fluid padding tag-div">
+          TAGS TO INCLUDE:
+          {% for tag in user_info['tag_sets']['tags_inc'] %}
+          <button id='tag_btn_id_{{tag}}' name='tag_btn_{{tag}}' value='{{tag}}' class='btn btn-sm btn-outline-secondary'>{{tag}}</button>
+          {% endfor %}
+      </div>
+      
+      
+      <div class="input-group mb-3">
+        <input name='create_tag_button' type="text" class="form-control" placeholder="Enter new tag . . ." aria-label="Personal tags" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button id="create_tag_btn_id" class="btn btn-outline-secondary" type="submit">CREATE TAG</button>
+        </div>
+      </div>
+      
+      <div id="did_ingredient_exc" class="container-fluid padding tag-div">
+        INGREDIENTS TO EXCLUDE:        
+        {% for tag in user_info['tag_sets']['ingredient_exc'] %}
+        <button id='tag_btn_id_{{tag}}' name='tag_btn_{{tag}}' value='{{tag}}' class='btn btn-sm btn-outline-secondary '>{{tag}}</button>
+        {% endfor %}
+
+        <div class="input-group mb-3">
+          <input id='add_igd_form' name='add_igd_form' type="text" class="form-control" placeholder="ingredients to avoid in search . . ." aria-label="Personal tags" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button id="remove_igd_btn_id" class="btn btn-outline-secondary" type="submit">-</button>
+          </div>
+          <div class="input-group-append">
+            <button id="add_igd_btn_id" class="btn btn-outline-secondary" type="submit">+ ingredient</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<script src='static/settings.js'></script>
+
+{% endblock %}

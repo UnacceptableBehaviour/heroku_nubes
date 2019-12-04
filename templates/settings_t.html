@@ -1,0 +1,34 @@
+{% extends 'nav_bar_t.html' %}
+
+{% block header %}
+
+  <title>user_allergy_search_settings</title>
+
+  <script>          
+    var userInfo = {{ user_info|tojson }};
+    console.log(`settings_t.html JS userInfo ${userInfo['UUID']} - inline`);  // sanity check
+    console.log(userInfo);
+  </script>
+  
+  <link rel="stylesheet" type="text/css" href="static/settings.css"/>  
+
+{% endblock %}
+
+{% block content %}
+    
+  {% include 'settings_page.html' %}
+  
+    
+  <!--REMOVE DEBUG
+  <table id='debug-settings-table'>
+    <tbody>
+    <td>allergens:</td>
+    <td>tags_inc</td>
+    <td>tags_exc</td>   
+    </tbody>
+  </table>
+  REMOVE DEBUG-->  
+  
+  <script src='static/settings.js'></script>
+  
+{% endblock %}

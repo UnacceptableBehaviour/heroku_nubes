@@ -9,6 +9,8 @@ from pprint import pprint
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
+from helpers_db import get_single_recipe_from_db_for_display_as_dict
+from helpers_db import get_single_recipe_with_subcomponents_from_db_for_display_as_dict
 
 
 # HOME
@@ -178,8 +180,10 @@ def db_recipe_page(ri_id):
   'text_file': '20190308_133011_ham green beans and cous cous w egg.txt',
   'user_rating': 1,
   'user_tags': ['none_listed']}
+    ri_id = 1304
+    #ri_id = 3302
     #recipe = get_single_recipe_from_db_for_display_as_dict(ri_id)
-    #recipe = get_single_recipe_with_subcomponents_from_db_for_display_as_dict(ri_id)
+    recipe = get_single_recipe_with_subcomponents_from_db_for_display_as_dict(ri_id)
     
     recipes = [recipe]
     
